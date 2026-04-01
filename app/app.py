@@ -8,6 +8,8 @@ def index():
     user_attrs = {}
     if request.method == 'POST':
         user_attrs = request.form.to_dict()
+    elif request.args:
+        user_attrs = request.args.to_dict()
     return render_template('index.html', user_attrs=user_attrs)
 
 
